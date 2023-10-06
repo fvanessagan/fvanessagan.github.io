@@ -34,7 +34,7 @@ class gamePlay extends Phaser.Scene {
 
         this.scoreNotes = this.add.image(50, 49, "scoreNotes");
         this.scoreNotes.setScale(1.8);
-        this.scoreText = this.add.text(80, 32, ':0/8', { fontSize: '32px', fill: '#000', fontFamily: 'monospace', strokeThickness: '3'});
+        this.scoreText = this.add.text(80, 32, ':0/16', { fontSize: '32px', fill: '#000', fontFamily: 'monospace', strokeThickness: '3'});
 
         this.boy = this.physics.add.sprite(200, 400, "boy");
         this.boy.setBounce(0.2);
@@ -321,7 +321,7 @@ class gamePlay extends Phaser.Scene {
         console.log("note gain: " + note_gain);
         note.destroy();
 
-        if (note_gain == 8)
+        if (note_gain == 16)
         {
           console.log("u won");
           youWin();
@@ -390,7 +390,7 @@ class gamePlay extends Phaser.Scene {
       }}
 
       const reviewScore = () => {
-        this.scoreText.setText(':' + note_gain + '/8');
+        this.scoreText.setText(':' + note_gain + '/16');
       }
     }
 
