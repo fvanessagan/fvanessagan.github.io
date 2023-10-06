@@ -274,7 +274,8 @@ class gamePlay extends Phaser.Scene {
     }
 
       this.spacekey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-      
+      this.pointer = this.input.activePointer;
+
       let health = 3;
       let note_gain = 0;
 
@@ -395,6 +396,7 @@ class gamePlay extends Phaser.Scene {
     }
 
     update() {
+
       this.sky1.tilePositionX += 0;
       this.sky2.tilePositionX += 1.5;
       this.landmarks.tilePositionX += 1;
@@ -402,18 +404,18 @@ class gamePlay extends Phaser.Scene {
 
         if (this.boy.x != 200) { this.boy.x = 200;}
 
-        if (this.spacekey.isDown && this.boy.y == 400)
+        if ((this.spacekey.isDown || this.pointer.isDown) && this.boy.y == 400)
         {
             this.jump();
             
         }
 
-        if (this.spacekey.isDown && this.boy.y > 250 && this.boy.y != 400)
+        if ((this.spacekey.isDown || this.pointer.isDown) && this.boy.y > 250 && this.boy.y != 400)
         {
           this.jump();
         }
 
-        if (this.boy.y >= 400 && this.spacekey.isUp)
+        if (this.boy.y > 400 && (this.spacekey.isUp || this.pointer.isUp))
         {
             this.boy.body.stop();
             this.boy.y = 400;
