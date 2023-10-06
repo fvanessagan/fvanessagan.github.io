@@ -26,7 +26,7 @@ class Start extends Phaser.Scene {
             this.load.image("titlewin", "img/obj/titlewin.png");
 
             this.load.image("title", "img/obj/title.png");
-            this.load.spritesheet("spasi", "img/obj/spasi.png", {frameWidth: 3402, frameHeight: 1000});
+            this.load.spritesheet("spasi", "img/obj/spasi.png", {frameWidth: 3402, frameHeight: 3402});
 
             this.load.spritesheet("mountain", "img/obj/mountain.png", {frameWidth: 64, frameHeight: 64});
             this.load.spritesheet("bird", "img/obj/bird.png", {frameWidth: 32, frameHeight: 32});
@@ -70,6 +70,7 @@ class Start extends Phaser.Scene {
     }
 
     create() {
+        //this.pointer = this.input.activePointer;
         
         this.sky1 = this.add.image(0, 0, "sky1");
         this.sky1.setOrigin(0,0);
@@ -104,7 +105,7 @@ class Start extends Phaser.Scene {
         });
  
         this.spacekey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        
+
         const moveToGameplay = () => {
             this.boy.play("boy-running");
             this.scene.start("gamePlay");
@@ -114,7 +115,7 @@ class Start extends Phaser.Scene {
         {
             moveToGameplay();
         });
-
+        
     }
 
     update() {
